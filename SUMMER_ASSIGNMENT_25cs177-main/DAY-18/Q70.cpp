@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, i, p;
+    cout << "enter the limit = ";
+    cin >> n;
+
+    int a[n];
+    cout << "enter the value of array = " << endl;
+    for (i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+
+    // for (int j = 0; j < n; j++)
+    // {
+    //     if (a[j] < min)
+    //     {
+    //         min = a[j];
+    //         p = j;
+    //     }
+    // }
+
+    // if (min != a[0])
+    // {
+    //     int c = a[0];
+    //     a[0] = a[p];
+    //     a[p] = c;
+    // }
+
+    for (i = 0; i < n - 1; i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[j] < a[min])
+                min = j;
+        }
+
+        int temp = a[min];
+        a[min] = a[i];
+        a[i] = temp;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        cout << " " << a[i];
+    }
+}
